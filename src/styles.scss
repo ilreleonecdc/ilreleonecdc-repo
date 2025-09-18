@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@use "styles/ilreleone.tokens" as *;
+
+html,
+body {
+  @extend %ilr-body;
+  font-size: 16px;
+  color: #111;
+  background: #fff;
+}
+
+/* Esempio: applica font titoli */
+h1,
+h2,
+h3,
+h4,
+.display {
+  @extend %ilr-heading;
+}
