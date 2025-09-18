@@ -1,0 +1,527 @@
+// PROVA PROVA
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.lithos-pro {
+  font-family: "lithos-pro", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.card-img-top {
+  width: inherit;
+  border-radius: inherit;
+  max-height: max-content;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card-container {
+  height: auto;
+  border-radius: 1rem;
+}
+
+.photo-container {
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header {
+  background-color: #face06;
+  display: flex;
+  flex-direction: column;
+}
+
+#header-section {
+  display: flex;
+  width: 100%;
+  height: 70%;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1;
+  margin: 0;
+}
+
+#logo {
+  width: 30%;
+  height: auto;
+}
+
+.testo {
+  display: flex;
+  color: #d0181f;
+  justify-content: center;
+}
+
+#text h1 {
+  font-size: clamp(2.5rem, 7vw, 8rem);
+}
+
+#text h2 {
+  font-size: clamp(2rem, 5vw, 5rem);
+}
+
+.div-giallo {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: #face06;
+  gap: 20px;
+}
+
+billetto-widget {
+  width: 100%;
+}
+
+.div-giallo h1 {
+  font-size: 3rem;
+  background-color: #face06;
+  color: #2b3f8c;
+}
+
+.div-biglietti-out {
+  width: 90%;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#div-biglietti-link {
+  display: flex;
+  flex-direction: column;
+}
+
+#link-evento {
+  text-align: center;
+}
+
+.div-biglietti-text {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(16px, 2vw, 20px);
+}
+
+.div-biglietti-text p {
+  width: 100%;
+}
+
+#p1 {
+  text-align: left;
+}
+
+ol {
+  margin: 15px;
+}
+
+li {
+  margin: 5px 30px;
+}
+
+/*about us*/
+.div-blu {
+  padding: 30px;
+  background-color: #2b3f8c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrittalogo {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  position: relative;
+}
+
+.scrittalogo img {
+  width: 20%;
+  height: auto;
+  transition: opacity 3s ease-in;
+}
+
+#chisiamo {
+  color: #f88d27;
+  font-size: 3rem;
+}
+
+#descrizione {
+  color: #face06;
+  text-align: center;
+  font-size: clamp(0.75rem, 1.5vw, 28px);
+  line-height: 1.5;
+}
+
+/* Schermi Desktop o Portatili */
+@media all and (min-width: 1321px) and (max-width: 1689px) {
+  .scrittalogo {
+    flex-direction: row;
+    /* Disposizione orizzontale */
+  }
+
+  .scrittalogo img {
+    opacity: 0;
+    /* Nascosta inizialmente */
+  }
+
+  #descrizione {
+    opacity: 0;
+    /* Nascosto inizialmente */
+    transform: translateX(0);
+    /* Posizione iniziale */
+    transition:
+      opacity 3s ease-in,
+      transform 3s ease-in;
+    /* Animazioni */
+  }
+}
+
+#descrizione b {
+  color: #f88d27;
+}
+
+.crowd-div {
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-out forwards;
+  border-left: 10px solid #f88d27;
+  width: 500px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.crowd-div h1 {
+  color: #f88d27;
+}
+
+.crowd-div p {
+  color: #2b3f8c;
+  width: 80%;
+  text-align: center;
+  margin: 20px;
+  font-size: large;
+  line-height: 25px;
+}
+
+.crowd-div img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.crowd-div img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+#btn-crw {
+  display: inline-block;
+  padding: 20px 40px;
+  margin: 30px auto;
+  width: 500px;
+  font-size: 25px;
+  border-radius: 20px;
+  color: white;
+  background-color: #f88d27;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  animation: pulse 2s infinite;
+}
+
+#btn-crw:hover {
+  background-color: #face06;
+  color: #4e2219;
+  transform: scale(1.1) rotate(-2deg);
+}
+
+/*photo gallery*/
+.div-rosso {
+  background-color: #d0181f;
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.div-rosso h1 {
+  color: #face06;
+  font-size: 3rem;
+}
+
+.div-rosso h3 {
+  color: white;
+  font-size: 1rem;
+  margin: 50px;
+}
+
+/*footer*/
+footer {
+  background-color: #f88d27;
+  color: #4e2219;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px #f88d27;
+  }
+
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #f88d27;
+  }
+}
+
+/* Tablet in modalità orizzontale */
+@media all and (min-width: 1024px) and (max-width: 1320px) {
+  #header-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  #descrizione {
+    opacity: 0;
+    /* Nascosto inizialmente */
+    transform: translateX(0);
+    /* Posizione iniziale */
+    transition:
+      opacity 3s ease-in,
+      transform 3s ease-in;
+    /* Animazioni */
+  }
+
+  .scrittalogo img {
+    opacity: 0;
+    transition: opacity 3s ease-in;
+  }
+}
+
+/*bho*/
+@media all and (min-width: 769px) and (max-width: 1024px) {
+  .scrittalogo {
+    margin: 20px;
+  }
+}
+
+/*tablet verticali*/
+@media all and (min-width: 481px) and (max-width: 768px) {
+  .div-blu {
+    padding: 20px;
+  }
+
+  .scrittalogo {
+    gap: 10px;
+  }
+
+  #chisiamo {
+    font-size: clamp(40px, 6vw, 45px);
+  }
+
+  .div-rosso h1 {
+    font-size: clamp(40px, 6vw, 45px);
+  }
+
+  #descrizione {
+    font-size: clamp(15px, 3vw, 20px);
+    line-height: 1.5;
+  }
+
+  #btn-crw {
+    width: clamp(350px, 70vw, 500px);
+    height: auto;
+    font-size: clamp(17px, 4vw, 20px);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
+  #crowdfunding {
+    width: 80%;
+    margin: 20px 0 0 0;
+  }
+
+  .crowd-div h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .crowd-div p {
+    font-size: 18px;
+    margin: 16px 0;
+    width: 340px;
+  }
+}
+
+/*smartphone*/
+@media all and (max-width: 480px) {
+  #header-section {
+    flex-direction: column;
+    margin: 20px;
+    margin-bottom: 30px;
+  }
+
+  #logo {
+    width: 60%;
+    /* Ancora più piccolo per smartphone */
+  }
+
+  .div-blu {
+    height: max-content;
+  }
+
+  /*about us*/
+  #chisiamo {
+    font-size: 2rem;
+  }
+
+  .scrittalogo {
+    flex-direction: column;
+    gap: 10px;
+    width: 90vw;
+  }
+
+  .scrittalogo img {
+    width: 25%;
+  }
+
+  #btn-crw {
+    width: clamp(300px, 80vw, 400px);
+    height: auto;
+    font-size: clamp(17px, 4vw, 20px);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
+  .div-rosso h1 {
+    font-size: 2rem;
+  }
+
+  footer {
+    height: 80px;
+  }
+
+  footer p {
+    width: 90%;
+    font-size: 14px;
+    padding: 2px;
+    text-align: center;
+  }
+
+  .crowd-div {
+    width: 80%;
+    margin: 20px 0 0 0;
+  }
+
+  .crowd-div h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .crowd-div p {
+    font-size: 16px;
+    margin: 16px 0;
+    width: 340px;
+  }
+
+  .div-giallo {
+    width: 100%;
+  }
+
+  .div-giallo h1 {
+    font-size: clamp(1.2rem, 7vw, 2rem);
+  }
+
+  .div-biglietti-out {
+    width: 97%;
+    flex-direction: column;
+    gap: 20px;
+    width: 90%;
+  }
+
+  .div-biglietti-text {
+    width: 100%;
+  }
+
+  #p1 {
+    text-align: center;
+  }
+
+  ol,
+  li {
+    text-align: left;
+  }
+
+  #titoloh4 {
+    text-align: center;
+  }
+
+  billetto-widget {
+    width: 100%;
+  }
+}
