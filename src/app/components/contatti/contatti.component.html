@@ -1,0 +1,193 @@
+<section class="hero">
+  <div class="text" pAnimateOnScroll enterClass="fade-in">
+    <h1 class="lithos-black">Contattaci</h1>
+    <p>Scrivici per informazioni su biglietti, collaborazioni o stampa.</p>
+  </div>
+</section>
+
+<section class="contact-grid container">
+  <!-- FORM -->
+  <div class="card form-card" pAnimateOnScroll enterClass="fade-in-base">
+    <h2 class="text-center mt-0">Modulo di Contatto</h2>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      novalidate
+      pAnimateOnScroll
+      enterClass="fade-in-base"
+    >
+      <!-- HONEYPOT antispam (nascosto) -->
+      <input
+        type="text"
+        tabindex="-1"
+        autocomplete="off"
+        class="hp"
+        aria-hidden="true"
+        [(ngModel)]="honey"
+        name="hp"
+      />
+
+      <div class="row">
+        <p-floatlabel variant="on" class="field">
+          <input
+            pInputText
+            inputId="nome"
+            formControlName="nome"
+            class="w-full"
+          />
+          <label for="nome">Nome</label>
+        </p-floatlabel>
+        <p-message
+          *ngIf="f.nome.touched && f.nome.invalid"
+          severity="error"
+          text="Inserisci il nome (min 2)"
+          [life]="3000"
+        ></p-message>
+      </div>
+
+      <div class="row">
+        <p-floatlabel variant="on" class="field">
+          <input
+            pInputText
+            inputId="cognome"
+            formControlName="cognome"
+            class="w-full"
+          />
+          <label for="cognome">Cognome</label>
+        </p-floatlabel>
+        <p-message
+          *ngIf="f.cognome.touched && f.cognome.invalid"
+          severity="error"
+          [life]="3000"
+          text="Inserisci il cognome (min 2)"
+        ></p-message>
+      </div>
+
+      <div class="row">
+        <p-floatlabel variant="on" class="field">
+          <input
+            pInputText
+            inputId="email"
+            formControlName="email"
+            class="w-full"
+          />
+          <label for="email">Email</label>
+        </p-floatlabel>
+        <p-message
+          *ngIf="f.email.touched && f.email.invalid"
+          severity="error"
+          text="Email non valida"
+          [life]="3000"
+        ></p-message>
+      </div>
+
+      <div class="row">
+        <p-floatlabel variant="on" class="field">
+          <p-select
+            inputId="oggetto"
+            [options]="topics"
+            optionLabel="label"
+            optionValue="value"
+            formControlName="oggetto"
+            class="w-full"
+            [autoDisplayFirst]="false"
+            [showClear]="true"
+          >
+          </p-select>
+          <label for="oggetto">Oggetto</label>
+        </p-floatlabel>
+        <p-message
+          *ngIf="f.oggetto.touched && f.oggetto.invalid"
+          severity="error"
+          text="Seleziona un argomento"
+          [life]="3000"
+        ></p-message>
+      </div>
+
+      <div class="row">
+        <p-floatlabel variant="on" class="field">
+          <textarea
+            pInputTextarea
+            inputId="messaggio"
+            rows="6"
+            formControlName="messaggio"
+            class="w-full"
+          ></textarea>
+          <label for="messaggio">Messaggio</label>
+        </p-floatlabel>
+        <p-message
+          *ngIf="f.messaggio.touched && f.messaggio.invalid"
+          severity="error"
+          text="Scrivi almeno 10 caratteri"
+          [life]="3000"
+        ></p-message>
+      </div>
+
+      <div class="actions">
+        <button
+          pButton
+          type="submit"
+          label="Invia richiesta"
+          [disabled]="sending || form.invalid"
+          [class]="
+            form.valid
+              ? 'p-button-rounded p-button-raised'
+              : 'p-button-rounded p-button-outlined'
+          "
+        ></button>
+      </div>
+
+      <p-message
+        *ngIf="sent"
+        severity="success"
+        text="Grazie! Messaggio inviato."
+        [life]="3000"
+      ></p-message>
+      <p-message *ngIf="error" severity="error" [text]="error" [life]="3000">
+      </p-message>
+
+      <p class="privacy">
+        Inviando il messaggio accetti la nostra
+        <a routerLink="/privacy">Privacy Policy</a>.
+      </p>
+    </form>
+    <p-toast position="top-center"></p-toast>
+  </div>
+
+  <!-- INFO RAPIDE -->
+  <aside class="card info-card" pAnimateOnScroll enterClass="fade-in-base">
+    <h3>INFO</h3>
+    <ul class="info-list">
+      <li>
+        <strong>Email</strong><br /><a href="mailto:info@oratorioperdiqua.it"
+          >info&#64;oratorioperdiqua.it</a
+        >
+      </li>
+      <li>
+        <strong>Telefono</strong><br /><a href="tel:+39 333 237 8994"
+          >+39 333 237 89940</a
+        >
+      </li>
+      <li>
+        <strong>Sede</strong><br />Via Maria Mattia Pierini 5, 06012, Cerbara,
+        PG
+      </li>
+      <li>
+        <strong>Social</strong><br />
+        <a
+          href="https://www.instagram.com/ilreleone.cdc/"
+          target="_blank"
+          rel="noopener"
+          >Instagram</a
+        >
+        ·
+        <a
+          href="https://www.facebook.com/oratorioperdiqua"
+          target="_blank"
+          rel="noopener"
+          >Facebook</a
+        >
+      </li>
+    </ul>
+  </aside>
+</section>

@@ -1,0 +1,209 @@
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="lithos-black" pAnimateOnScroll enterClass="fade-in-up">
+      Il Re Leone CDC – Il Musical
+    </h1>
+    <p class="subtitle" pAnimateOnScroll enterClass="fade-in">
+      Un progetto nato dalla forza di una comunità: artigianato, musica e
+      teatro.
+    </p>
+    <div class="cta" pAnimateOnScroll enterClass="fade-in">
+      <a
+        pButton
+        routerLink="/prenota"
+        label="Prenota i biglietti"
+        class="btn-primary"
+      ></a>
+      <a
+        pButton
+        routerLink="/contatti"
+        label="Contattaci"
+        class="btn-outline"
+      ></a>
+    </div>
+  </div>
+  <!-- Sentinella per far comparire l'header quando si scorre -->
+  <div #heroSentinel class="hero-sentinel" aria-hidden="true"></div>
+</section>
+
+<!-- CHI SIAMO -->
+<section id="chi-siamo" class="section container p-3">
+  <h2 class="lithos-black text-center">Chi siamo</h2>
+  <div class="chi-siamo-container grid">
+    <div
+      class="median col-12 align-self-center lg:col-6"
+      pAnimateOnScroll
+      enterClass="fade-in-right"
+    >
+      <img
+        src="assets/images/varie/seguiunastella.webp"
+        alt="Segui una Stella"
+        loading="lazy"
+      />
+    </div>
+    <div
+      class="text col-12 align-content-center lg:col-6 lg:text-center"
+      pAnimateOnScroll
+      enterClass="fade-in-left"
+    >
+      <p>
+        Siamo un gruppo di volontari dell'<strong>Oratorio PerDiQua</strong> di
+        Cerbara (PG) che ha trasformato un sogno collettivo in realtà con la
+        consapevolezza che l'espeerienza teatrale posso far esplorare la
+        ricchezza artistica e la promozione della bellezza.
+        <strong
+          >Maschere, scenografie e costumi sono stati realizzati a mano</strong
+        >
+        grazie a decine di volontari: genitori, amici, professionisti e
+        artigiani che hanno donato tempo e talento per la realizzazione di una
+        rete sociale comunitaria.
+      </p>
+      <p>
+        Il nostro spettacolo è ispirato al Musical <em>"The Lion King"</em> di
+        Broadway. Lo spettacolo fa un uso innovativo dei
+        <strong>"puppet"</strong> che possono essere maschere, pupazzi o
+        marionette. La tecnica di <strong>doppia natura</strong> unisce la
+        presenza dell'attore e del pupazzo in scena nello stesso momento!
+      </p>
+      <!-- <a routerLink="/gallery" class="link">Scopri il dietro le quinte</a> -->
+    </div>
+
+    <div class="col-12 logoOratorio" pAnimateOnScroll enterClass="fade-in-left">
+      <img
+        src="assets/images/loghi/LOGO Oratorio.webp"
+        alt="Oratorio PerDiQua"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- TRAGUARDI & FUTURO (al posto dei prossimi spettacoli) -->
+<section id="metrics" class="section alt" #metricsSection>
+  <div class="container">
+    <h2 class="lithos-black text-center" pAnimateOnScroll enterClass="fade-in">
+      Il viaggio fin qui
+    </h2>
+
+    <div class="knobs" pAnimateOnScroll enterClass="fade-in-up">
+      <!-- Spettatori -->
+      <div class="knob-card">
+        <p-knob
+          [(ngModel)]="spectatorsDisplay"
+          [min]="0"
+          [max]="spectatorsTarget + 50"
+          [size]="180"
+          [strokeWidth]="10"
+          [showValue]="true"
+          valueTemplate="{value}+"
+          [valueColor]="'#f88d27'"
+          [rangeColor]="'#e8e8ef'"
+          [textColor]="'#f88d27'"
+          [readonly]="true"
+        >
+        </p-knob>
+        <h3 style="color: #f88d27">Spettatori</h3>
+        <p class="desc">Hanno già vissuto la magia dello spettacolo.</p>
+      </div>
+
+      <!-- Volontari -->
+      <div class="knob-card">
+        <p-knob
+          [(ngModel)]="volunteersDisplay"
+          [min]="0"
+          [max]="volunteersTarget + 10"
+          [size]="180"
+          [strokeWidth]="10"
+          [showValue]="true"
+          valueTemplate="{value}+"
+          [valueColor]="'#2f408c'"
+          [rangeColor]="'#e8e8ef'"
+          [textColor]="'#2f408c'"
+          [readonly]="true"
+        >
+        </p-knob>
+        <h3>Volontari</h3>
+        <p class="desc">
+          Ogni maschera, costume e scenografia è frutto della comunità.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="personaggi" class="section w-full">
+  <div class="container w-full">
+    <h2 class="lithos-black text-center">Personaggi Principali</h2>
+
+    <div class="char-grid w-full" aria-label="Personaggi principali">
+      <article
+        *ngFor="let c of characters; let i = index; trackBy: trackByName"
+        class="char-card"
+        [ngClass]="c.class"
+        pAnimateOnScroll
+        [enterClass]="i === 0 ? 'fade-in-up' : 'fade-in-up2'"
+      >
+        <div class="media">
+          <img [src]="c.img" [alt]="c.name" [loading]="'lazy'" />
+          <div class="scrim"></div>
+          <a
+            *ngIf="c.class === 'obbiettivo'"
+            class="overlay-link"
+            routerLink="/gallery"
+            aria-label="Apri galleria"
+          ></a>
+          <div class="titlebar">
+            <h3
+              class="name"
+              [ngClass]="{ underline: c.name == 'Scopri la Galleria' }"
+            >
+              {{ c.name }}
+            </h3>
+            <!-- opzionale: mostra ruolo se presente -->
+            <!-- <span class="role" *ngIf="(c as any).role as r">{{ r }}</span> -->
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="cta-final">
+  <div class="container inner" pAnimateOnScroll enterClass="fade-in">
+    <h2 class="lithos-black">Vivi la magia dal vivo</h2>
+    <p>Prenota ora il tuo posto a teatro.</p>
+    <a
+      pButton
+      routerLink="/prenota"
+      label="Prenota i biglietti"
+      class="btn-contrast"
+    ></a>
+  </div>
+</section>
+
+<!-- CITAZIONI (carousel auto) -->
+<section id="citazioni" class="section container">
+  <!-- <h2 class="lithos-black" pAnimateOnScroll enterClass="fade-in">
+    Dicono di noi
+  </h2> -->
+  <p-carousel
+    [value]="quotes"
+    [circular]="true"
+    [autoplayInterval]="4000"
+    [numVisible]="1"
+    [numScroll]="1"
+    [showIndicators]="true"
+    [showNavigators]="false"
+    styleClass="quotes-carousel"
+    pAnimateOnScroll
+    enterClass="fade-in-up"
+  >
+    <ng-template pTemplate="item" let-q>
+      <div class="quote-card">
+        <p class="quote">“{{ q.text }}”</p>
+        <p class="author">— {{ q.author }}</p>
+      </div>
+    </ng-template>
+  </p-carousel>
+</section>

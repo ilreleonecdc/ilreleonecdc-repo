@@ -1,7 +1,7 @@
 /* ========= Il Re Leone CDC – Design Tokens (SCSS) ========= */
 
 /* Font family */
-$ilr-font-heading: "lithos-pro", "Lithos Pro", "Lythos Pro Black", system-ui, sans-serif !default;
+$ilr-font-heading: "Lythos Pro Black", "lithos-pro", "Lithos Pro", system-ui, sans-serif !default;
 $ilr-font-body:
   "Rubik",
   system-ui,
@@ -67,6 +67,7 @@ $ilr-orange: #f88d27 !default;
 %ilr-heading {
   font-family: $ilr-font-heading;
   line-height: $ilr-line-tight;
+  font-weight: 900;
 }
 %ilr-body {
   font-family: $ilr-font-body;
@@ -77,22 +78,18 @@ $ilr-orange: #f88d27 !default;
 .h1 {
   @extend %ilr-heading;
   font-size: $ilr-font-size-5xl;
-  margin-bottom: $ilr-space-4;
 }
 .h2 {
   @extend %ilr-heading;
   font-size: $ilr-font-size-4xl;
-  margin-bottom: $ilr-space-3;
 }
 .h3 {
   @extend %ilr-heading;
   font-size: $ilr-font-size-3xl;
-  margin-bottom: $ilr-space-3;
 }
 .h4 {
   @extend %ilr-heading;
   font-size: $ilr-font-size-2xl;
-  margin-bottom: $ilr-space-2;
 }
 
 .body {
@@ -113,10 +110,10 @@ $ilr-orange: #f88d27 !default;
   color: #fff;
   box-shadow: $ilr-shadow-sm;
 
-  &:hover {
-    background: darken($ilr-orange, 5%);
-  }
-  &:active {
-    background: darken($ilr-orange, 10%);
-  }
+  // &:hover {
+  //   background: darken($ilr-orange, 5%);
+  // }
+  // &:active {
+  //   background: darken($ilr-orange, 10%);
+  // }
 }

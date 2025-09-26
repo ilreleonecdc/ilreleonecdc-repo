@@ -1,0 +1,302 @@
+/* prenota.component.scss */
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 9rem 1rem;
+  background: #1f2020;
+  color: #fff;
+  overflow: hidden;
+  height: 60vh;
+  padding-top: 10rem;
+  h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+  @media screen and (min-width: 1024px) {
+    height: 75vh;
+    h1 {
+      padding-top: 4.5rem;
+    }
+  }
+  @media screen and (min-width: 640px) {
+    height: 75vh;
+    h1 {
+      padding-top: 10rem;
+    }
+  }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../../../assets/images/spettacolo/spettacolo zv mini (59 of 59).webp");
+  background-size: cover;
+  background-position: top;
+  opacity: 0.55; /* <- opacità solo sull’immagine */
+  z-index: 0;
+  @media screen and (min-width: 1024px) {
+  }
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1; /* il contenuto rimane sopra */
+}
+
+@media screen and (min-width: 600px) {
+  .hero {
+    padding: 8rem 1rem;
+  }
+}
+.btn-brand {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  background: var(--p-brand-orange);
+  color: #fff;
+  text-decoration: none;
+}
+.btn-outline {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 2px solid #2f408c;
+  color: #2f408c;
+  text-decoration: none;
+}
+.alt {
+  background: #e8e8ef;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.filter {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.25rem;
+}
+.filter select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+.toggle {
+  gap: 0.5rem;
+}
+:host ::ng-deep .p-toggleswitch {
+  display: flex;
+  align-self: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  @media screen and (min-width: 650px) {
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
+}
+.card .cover {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+.card .body {
+  padding: 1rem;
+}
+.card .title {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+}
+.card .meta {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin: 0 0 0.75rem;
+}
+.badge.soldout {
+  background: #ce191f;
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+}
+
+.badge.comingsoon {
+  background: #020617;
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+}
+$blue: #2f408c;
+$orange: #f88d27;
+$yellow: #face06;
+
+/* CTA — Ticket style */
+.btn-ticket {
+  --btn-bg: #f88d27; /* base arancione */
+  --btn-bg-2: #ff9e3f; /* sfumatura */
+  --btn-fg: #fff;
+  --btn-glow: rgba(248, 141, 39, 0.55);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.15rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--btn-bg) 0%, var(--btn-bg-2) 100%);
+  color: var(--btn-fg) !important;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  box-shadow: 0 6px 18px rgba(248, 141, 39, 0.28);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease;
+  isolation: isolate; /* per gli effetti interni */
+
+  /* “fori” tipo ticket agli estremi (solo decor, via gradient mask) */
+  -webkit-mask-image:
+    radial-gradient(circle 10px at left 50%, transparent 9px, #000 9.5px),
+    radial-gradient(circle 10px at right 50%, transparent 9px, #000 9.5px), linear-gradient(#000, #000);
+  -webkit-mask-composite: source-over, source-over, source-in;
+  mask-image:
+    radial-gradient(circle 10px at left 50%, transparent 9px, #000 9.5px),
+    radial-gradient(circle 10px at right 50%, transparent 9px, #000 9.5px), linear-gradient(#000, #000);
+  mask-composite: add;
+
+  /* PrimeNG reset */
+  &.p-button {
+    border: none;
+  }
+
+  .icon {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .label {
+    white-space: nowrap;
+  }
+
+  .badge {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.75rem;
+    line-height: 1;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+  }
+
+  /* bagliore morbido */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 var(--btn-glow);
+    opacity: 0;
+    transition:
+      opacity 0.18s ease,
+      box-shadow 0.18s ease;
+    pointer-events: none;
+  }
+
+  /* shine diagonale */
+  .shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.35) 30%, transparent 60%);
+    transform: translateX(-120%);
+    transition: transform 0.6s ease;
+    border-radius: inherit;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+  }
+
+  /* hover/focus */
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(248, 141, 39, 0.34);
+    .shine {
+      transform: translateX(120%);
+    }
+    &::after {
+      opacity: 0.7;
+      box-shadow: 0 0 30px 8px var(--btn-glow) inset;
+    }
+  }
+
+  /* active */
+  &:active {
+    transform: translateY(0);
+    filter: saturate(1.05);
+  }
+
+  /* accessibilità */
+  &:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 3px #fff,
+      0 0 0 6px $yellow;
+  }
+}
+
+/* Riduzione motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn-ticket,
+  .btn-ticket .shine {
+    transition: none;
+  }
+}
+
+.trailer-section {
+  display: flex;
+  justify-content: center;
+  h3 {
+    text-align: center;
+    font-size: 2rem;
+  }
+}
+
+.trailer-container {
+  width: fit-content;
+  iframe {
+    border-radius: 1.7rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  @media screen and (max-width: 640px) {
+    iframe {
+      height: auto;
+      width: 350px;
+    }
+  }
+}

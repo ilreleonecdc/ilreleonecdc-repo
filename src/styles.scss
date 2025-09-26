@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use "styles/ilreleone.tokens" as *;
+@import "aos/dist/aos.css";
 
 html,
 body {
@@ -11,6 +12,46 @@ body {
   padding: 0;
 }
 
+.lithos-black {
+  font-family: "lithos-pro", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.lithos-bold {
+  font-family: "lithos-pro", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.rubik {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bebas {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.spartan {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.5;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Esempio: applica font titoli */
 h1,
 h2,
@@ -18,4 +59,114 @@ h3,
 h4,
 .display {
   @extend %ilr-heading;
+}
+.white {
+  color: var(--p-brand-white);
+}
+
+section {
+  width: 100%;
+}
+
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  h1 {
+    font-size: 4.3rem !important;
+    padding: 0 3rem !important;
+  }
+}
+
+// ANIMAZIONI E CLASSI
+.fade-in {
+  animation: fadeInAnim 0.8s ease-out forwards;
+}
+.fade-out {
+  animation: fadeOutAnim 0.5s ease-in forwards;
+}
+
+.slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.fade-in-base {
+  animation: fadeInBase 1s ease-out forwards;
+}
+
+.fade-in-down {
+  animation: fadeInDown 1s ease-in-out forwards;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(200px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInBase {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInAnim {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeOutAnim {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+//
+
+/* ========== GLOBAL ========== */
+/* Firefox */
+* {
+  scrollbar-width: thin; /* auto | thin | none */
+  scrollbar-color: #b8c0ff transparent; /* thumb | track */
+  scroll-behavior: auto;
+}
+
+/* Chrome/Edge/Safari (WebKit) */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px; /* per scorrimenti orizzontali */
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2f408c, #f88d27); /* blu → arancione */
+  border-radius: 999px;
+  border: 2px solid transparent; /* crea spazio/effetto “pill” */
+  background-clip: content-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  filter: brightness(0.95);
 }

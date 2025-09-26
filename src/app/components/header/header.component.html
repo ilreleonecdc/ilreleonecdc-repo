@@ -1,0 +1,55 @@
+<section class="header">
+  <nav
+    class="navbar"
+    [ngClass]="{
+      scrolled: isScrolled,
+      'is-home': isHome,
+      'is-contatti': isContatti,
+    }"
+  >
+    <div class="brand" routerLink="/">
+      <img
+        src="../../../assets/images/loghi/rafiki_no_titolo.webp"
+        alt="Logo"
+      />
+      <div class="text flex flex-column align-items-center">
+        <h3 class="lithos-black">
+          Il Re Leone CDC <br /><span>Il Musical</span>
+        </h3>
+      </div>
+    </div>
+
+    <button
+      class="hamburger"
+      (click)="openMenu()"
+      aria-label="Apri menu"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="mobile-drawer"
+      [ngClass]="{ 'is-home': isHome, scrolled: isScrolled }"
+    >
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </nav>
+
+  <div class="backdrop" *ngIf="menuOpen" (click)="closeMenu()"></div>
+  <aside
+    id="mobile-drawer"
+    class="drawer"
+    [class.open]="menuOpen"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="mobile-nav-title"
+  >
+    <div class="drawer-inner">
+      <button class="close" (click)="closeMenu()" aria-label="Chiudi menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <ul class="nav-links lithos-black" (click)="onNavClick($event)">
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/prenota">Prenota</a></li>
+        <li><a routerLink="/gallery">Galleria</a></li>
+        <li><a routerLink="/contatti">Contatti</a></li>
+      </ul>
+    </div>
+  </aside>
+</section>

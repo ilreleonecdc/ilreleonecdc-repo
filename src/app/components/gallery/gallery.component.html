@@ -1,0 +1,72 @@
+<section class="hero fade-in-base">
+  <h1 class="text-center lithos-black" pAnimateOnScroll enterClass="fade-in">
+    PHOTO GALLERY
+  </h1>
+  <p
+    id="description"
+    class="rubik white text-center"
+    pAnimateOnScroll
+    enterClass="fade-in-down"
+    (animationstart)="(3000)"
+  >
+    Una raccolta di immagini che racchiudono i momenti più importanti ed
+    emozionanti de <br />
+    "<strong>Il Re Leone CDC - Il Musical</strong>". <br />
+    <br />
+    Rivivi insieme a noi un'esperienza indimenticabile!
+  </p>
+  <div class="arrow scroll-cue">
+    <i class="fa-solid fa-arrow-down"></i>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="gallery-container">
+    <div class="images-columns p-1">
+      @for (item of images; track $index) {
+      <figure
+        class="photo"
+        pAnimateOnScroll
+        enterClass="fade-in"
+        threshold="0.1"
+      >
+        <p-image
+          class="photo-img"
+          [src]="item"
+          [alt]="item"
+          loading="lazy"
+          preview="true"
+          imageClass="gallery-img"
+          [imageStyle]="{
+          width: '100%',
+          height: 'auto',
+          display: 'block',
+        }"
+        >
+          <ng-template #indicator>
+            <i class="pi pi-search"></i>
+          </ng-template>
+          <ng-template
+            #preview
+            let-style="style"
+            let-previewCallback="previewCallback"
+          >
+            <img
+              class="photo-img2"
+              [src]="item"
+              alt="image"
+              [style]="style"
+              (click)="previewCallback()"
+            />
+          </ng-template>
+        </p-image>
+      </figure>
+      }
+    </div>
+  </div>
+  <p id="doti" class="rubik white text-center">
+    Le fotografie sono state scattate durante la Prima Rappresentazione tenuta
+    al Teatro degli Illuminati, Città di Castello (PG) - 5 Aprile 2025. <br />
+    © Christian Doti
+  </p>
+</section>
