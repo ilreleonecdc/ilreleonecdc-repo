@@ -1,11 +1,12 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, LOCALE_ID, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
 import BrandColorsPreset from '../styles/_ilreleone.preset';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter, withHashLocation, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
+import '@angular/common/locales/global/it';
+import Aura from '@primeuix/themes/aura';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,7 +22,8 @@ export const appConfig: ApplicationConfig = {
           darkModeSelector: false
         }
       }
-    })
+    }),
+    { provide: LOCALE_ID, useValue: 'it-IT'}
   ]
 };
 

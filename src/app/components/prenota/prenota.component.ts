@@ -97,7 +97,7 @@ export class PrenotaComponent implements OnInit {
     {
       id: 'citta-di-castello-2025-10-26',
       title: 'Il Re Leone CDC – Il Musical',
-      date: '2025-10-26T21:00:00+02:00',
+      date: '2025-10-26T21:00:00+01:00',
       venue: 'Teatro degli Illuminati',
       city: 'Città di Castello',
       billettoUrl: 'https://billetto.it/e/il-re-leone-cdc-il-musical-biglietti-1666405?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1',
@@ -108,7 +108,7 @@ export class PrenotaComponent implements OnInit {
     {
       id: 'assisi-2026-03-21',
       title: 'Il Re Leone CDC – Il Musical',
-      date: '2026-03-21T21:00:00+02:00',
+      date: '2026-03-xxT21:00:00+01:00',
       venue: 'Teatro Lyrick',
       city: 'Assisi',
       billettoUrl: '',
