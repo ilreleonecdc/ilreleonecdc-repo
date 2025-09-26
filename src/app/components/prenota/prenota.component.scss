@@ -11,22 +11,15 @@
   background: #1f2020;
   color: #fff;
   overflow: hidden;
-  height: 60vh;
-  padding-top: 10rem;
+  height: 75vh;
   h1 {
     font-size: clamp(2rem, 4vw, 3.5rem);
   }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 640rem) and (max-width: 1440px) {
     height: 75vh;
-    h1 {
-      padding-top: 4.5rem;
-    }
   }
-  @media screen and (min-width: 640px) {
-    height: 75vh;
-    h1 {
-      padding-top: 10rem;
-    }
+  @media screen and (max-width: 640px) {
+    height: 60vh;
   }
 }
 
