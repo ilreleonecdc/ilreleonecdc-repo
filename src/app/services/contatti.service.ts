@@ -12,7 +12,7 @@ export class ContattiService {
   private http = inject(HttpClient);
 
   // stesso endpoint dell'oratorio
-  private readonly apiUrl = 'https://oratorio-backend.onrender.com/api/contatto';
+  private readonly apiUrl = 'https://oratorio-backend.onrender.com/api/releone/contatto';
 
   sendContatto(contatto: Contatto) {
     return this.http.post(this.apiUrl, contatto);

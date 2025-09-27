@@ -47,8 +47,8 @@ export class ContattiComponent implements OnInit{
     nome: ['', [Validators.required, Validators.minLength(2)]],
     cognome: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
-    oggetto: [null as Topic | null, [Validators.required]],
-    messaggio: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(1000)]],
+    oggetto: ['' as Topic, [Validators.required]],
+    messaggio: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(500)]],
   });
 
   get f() { return this.form.controls }
