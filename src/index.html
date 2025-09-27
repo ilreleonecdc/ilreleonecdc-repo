@@ -23,7 +23,7 @@
 
     <!-- Font (scegline uno: Typekit OPPURE Google Fonts) -->
     <!-- Typekit -->
-    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin="" />
     <link rel="stylesheet" href="https://use.typekit.net/xmk6hib.css" />
     <!-- In alternativa: Google Fonts -->
     <style>
@@ -90,11 +90,21 @@
     />
     <!-- facoltativi -->
     <!-- <meta name="twitter:site" content="@tuo_account"> -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/icon-192.png"
+    />
+    <meta name="theme-color" content="#face06" />
   </head>
 
   <body>
     <app-root></app-root>
+    <noscript
+      >Please enable JavaScript to continue using this application.</noscript
+    >
   </body>
 
-  <script src="https://billetto.it/embed.js" defer></script>
+  <script src="https://billetto.it/embed.js" defer=""></script>
 </html>
