@@ -13,12 +13,13 @@ import { ToastModule } from 'primeng/toast';
 import { ContattiService } from '../../services/contatti.service';
 import { Contatto } from '../../models/contatto.model';
 import { AnimateOnScroll } from "primeng/animateonscroll";
+import { RouterLink } from '@angular/router';
 
 type Topic = 'Biglietti' | 'Collaborazioni' | 'Stampa' | 'Altro';
 
 @Component({
   selector: 'app-contatti',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, FloatLabelModule, InputTextModule, SelectModule, InputMaskModule, ButtonModule, MessageModule, ToastModule, TextareaModule, AnimateOnScroll],
+  imports: [CommonModule, FormsModule, RouterLink, ReactiveFormsModule, FloatLabelModule, InputTextModule, SelectModule, InputMaskModule, ButtonModule, MessageModule, ToastModule, TextareaModule, AnimateOnScroll],
   templateUrl: './contatti.component.html',
   styleUrl: './contatti.component.scss',
   providers: [MessageService]

@@ -23,7 +23,7 @@ export class HeaderComponent {
       .subscribe((e: any) => {
         // controlla se sei sulla home
         this.isHome = e.urlAfterRedirects === '/' || e.urlAfterRedirects.startsWith('/#');
-        this.isContatti = e.urlAfterRedirects === '/contatti' || e.urlAfterRedirects === '/gallery' || e.urlAfterRedirects === '/prenota';
+        this.isContatti = e.urlAfterRedirects === '/contatti' || e.urlAfterRedirects === '/gallery' || e.urlAfterRedirects === '/prenota' || e.urlAfterRedirects === '/privacy';
       });
   }
 

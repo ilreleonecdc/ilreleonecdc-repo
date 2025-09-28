@@ -1,0 +1,175 @@
+.privacy {
+  --brand-yellow: var(--p-brand-yellow, #face06);
+  --brand-blue: var(--p-brand-blue, #2f408c);
+  --brand-brown: var(--p-brand-brown, #4c1b1f);
+  --ink: #2b2b2f;
+  --muted: #6b7280;
+  --surface: #ffffff;
+  --surface-2: #f7f7fb;
+
+  background: var(--surface-2);
+
+  /* Tipografia di base */
+  :host,
+  .privacy {
+    font-family:
+      "Rubik",
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      Roboto,
+      Arial,
+      sans-serif;
+  }
+  h1,
+  h2 {
+    font-family: "Lythos Pro Black", "Rubik", Arial, sans-serif;
+  }
+
+  /* Hero */
+  .hero {
+    background:
+      radial-gradient(1200px 400px at 50% -10%, rgba(250, 206, 6, 0.18), transparent 60%),
+      linear-gradient(180deg, rgba(47, 64, 140, 0.9), rgba(47, 64, 140, 0.68));
+    color: #fff;
+    padding: 8.5rem 16px 28px;
+    text-align: center;
+
+    .hero-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      place-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      border: 3px solid var(--brand-yellow);
+      object-fit: cover;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+    .titles h1 {
+      margin: 6px 0 0;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+    .muted {
+      margin: 6px 0 0;
+      color: #e8e8ef;
+      opacity: 0.9;
+    }
+  }
+
+  /* Indice */
+  .toc {
+    max-width: 980px;
+    margin: 16px auto 0;
+    padding: 0 16px 8px;
+    ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    a {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--brand-blue);
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+    a:hover {
+      background: var(--brand-yellow);
+      color: var(--brand-brown);
+    }
+  }
+
+  /* Contenuto */
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 16px 16px 72px;
+  }
+
+  .card {
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+
+    .block {
+      scroll-margin-top: 110px;
+    } /* per ancore sotto header fisso */
+
+    h2 {
+      margin: 20px 0 10px;
+      color: #000;
+      // color: var(--brand-brown);
+      font-size: 1.28rem;
+      line-height: 1.2;
+      position: relative;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 56px;
+      height: 3px;
+      margin-top: 8px;
+      background: linear-gradient(90deg, var(--brand-yellow), var(--brand-blue));
+      border-radius: 3px;
+    }
+    p,
+    li {
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    ul {
+      padding-left: 1.1rem;
+      margin: 0.25rem 0 0.75rem;
+    }
+    a {
+      color: var(--brand-blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .backtotop {
+      margin-top: 18px;
+      align-self: flex-end;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 0;
+      background: var(--brand-yellow);
+      color: var(--brand-brown);
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+    }
+    .backtotop:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .card {
+      padding: 18px;
+    }
+    .hero .logo {
+      width: 72px;
+      height: 72px;
+    }
+  }
+}

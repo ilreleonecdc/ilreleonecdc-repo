@@ -285,11 +285,12 @@ $yellow: #face06;
   iframe {
     border-radius: 1.7rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    aspect-ratio: 16/9;
   }
   @media screen and (max-width: 640px) {
     iframe {
-      height: auto;
-      width: 350px;
+      height: 190px;
+      width: auto;
     }
   }
 }

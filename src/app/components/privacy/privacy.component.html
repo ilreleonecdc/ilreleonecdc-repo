@@ -1,0 +1,180 @@
+<section class="privacy">
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <img
+        class="logo"
+        src="assets/images/loghi/rafiki_no_titolo.webp"
+        alt="Il Re Leone CDC - logo"
+      />
+      <div class="titles">
+        <h1 class="lithos-black">Privacy Policy</h1>
+        <p class="muted">
+          Ultimo aggiornamento:
+          <time [attr.datetime]="lastUpdate.toISOString()">{{
+            lastUpdate | date : "dd/MM/yyyy"
+          }}</time>
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- INDICE -->
+  <nav class="toc" aria-label="Indice dei contenuti">
+    <ol>
+      <li>
+        <a href="#titolare" (click)="scrollTo('titolare', $event)"
+          >Titolare del trattamento</a
+        >
+      </li>
+      <li>
+        <a href="#dati" (click)="scrollTo('dati', $event)">Dati raccolti</a>
+      </li>
+      <li>
+        <a href="#finalita" (click)="scrollTo('finalita', $event)"
+          >Finalità del trattamento</a
+        >
+      </li>
+      <li>
+        <a href="#base-giuridica" (click)="scrollTo('base-giuridica', $event)"
+          >Base giuridica</a
+        >
+      </li>
+      <li>
+        <a href="#conservazione" (click)="scrollTo('conservazione', $event)"
+          >Modalità e conservazione</a
+        >
+      </li>
+      <li>
+        <a href="#destinatari" (click)="scrollTo('destinatari', $event)"
+          >Destinatari dei dati</a
+        >
+      </li>
+      <li>
+        <a href="#diritti" (click)="scrollTo('diritti', $event)"
+          >Diritti degli interessati</a
+        >
+      </li>
+      <li><a href="#cookie" (click)="scrollTo('cookie', $event)">Cookie</a></li>
+      <li>
+        <a href="#aggiornamenti" (click)="scrollTo('aggiornamenti', $event)"
+          >Aggiornamenti</a
+        >
+      </li>
+    </ol>
+  </nav>
+
+  <!-- CONTENUTO -->
+  <div class="container">
+    <article class="card">
+      <section id="titolare" class="block">
+        <h2>1. Titolare del trattamento</h2>
+        <p>
+          <strong>Oratorio PerDiQua – ODV</strong><br />
+          C.F.: 90029390540<br />
+          Sede legale: Via Mattia Pierini 5 – 06012 Città di Castello (PG)<br />
+          PEC:
+          <a href="mailto:oratorioperdiqua@pec.it"
+            >oratorioperdiqua&#64;pec.it</a
+          ><br />
+          Tel: <a href="tel:+393475940597">347 5940597</a><br />
+          Email privacy:
+          <a href="mailto:ilreleonecdc@gmail.com">ilreleonecdc&#64;gmail.com</a>
+        </p>
+      </section>
+
+      <section id="dati" class="block">
+        <h2>2. Dati raccolti</h2>
+        <p>
+          Tramite il <em>Modulo di Contatto</em> raccogliamo:
+          <strong>Nome</strong>, <strong>Cognome</strong>,
+          <strong>Email</strong>, <strong>Oggetto</strong> e
+          <strong>Messaggio</strong>. Non utilizziamo cookie di profilazione o
+          strumenti di tracciamento.
+        </p>
+      </section>
+
+      <section id="finalita" class="block">
+        <h2>3. Finalità del trattamento</h2>
+        <p>
+          Utilizziamo i dati esclusivamente per
+          <strong>rispondere alle richieste inviate</strong>
+          e per fornire informazioni relative allo spettacolo
+          <em>“Il Re Leone CDC – Il Musical”</em>.
+        </p>
+      </section>
+
+      <section id="base-giuridica" class="block">
+        <h2>4. Base giuridica</h2>
+        <p>
+          La base giuridica è il <strong>consenso</strong> dell’utente (art. 6,
+          par. 1, lett. a GDPR), espresso tramite l’invio del form.
+        </p>
+      </section>
+
+      <section id="conservazione" class="block">
+        <h2>5. Modalità e tempi di conservazione</h2>
+        <p>
+          I dati sono trattati con strumenti informatici e conservati per il
+          tempo necessario a evadere la richiesta e, in ogni caso,
+          <strong>non oltre 12 mesi</strong>, salvo obblighi di legge.
+        </p>
+      </section>
+
+      <section id="destinatari" class="block">
+        <h2>6. Destinatari dei dati</h2>
+        <p>
+          I dati non sono diffusi. Per motivi tecnici ci avvaliamo di fornitori:
+        </p>
+        <ul>
+          <li><strong>Render</strong> (hosting e backend);</li>
+          <li>
+            <strong>Brevo (ex Sendinblue)</strong> per l’invio delle email.
+          </li>
+        </ul>
+        <p>
+          Tali fornitori trattano i dati in qualità di
+          <em>responsabili del trattamento</em> (art. 28 GDPR).
+        </p>
+      </section>
+
+      <section id="diritti" class="block">
+        <h2>7. Diritti degli interessati</h2>
+        <p>
+          Puoi esercitare i diritti previsti dal GDPR: accesso, rettifica,
+          cancellazione, limitazione, opposizione, portabilità dei dati, nonché
+          proporre reclamo al Garante per la Protezione dei Dati Personali.
+        </p>
+        <p>
+          Per richieste:
+          <a href="mailto:ilreleonecdc@gmail.com">ilreleonecdc&#64;gmail.com</a>
+        </p>
+      </section>
+
+      <section id="cookie" class="block">
+        <h2>8. Cookie</h2>
+        <p>
+          Il sito utilizza solo cookie tecnici necessari al funzionamento. Non
+          impieghiamo cookie di profilazione, Analytics o marketing.
+        </p>
+      </section>
+
+      <section id="aggiornamenti" class="block">
+        <h2>9. Aggiornamenti</h2>
+        <p>
+          La presente informativa potrà essere aggiornata. Le modifiche saranno
+          pubblicate su questa pagina con indicazione della data di ultimo
+          aggiornamento.
+        </p>
+      </section>
+
+      <button
+        class="backtotop"
+        (click)="scrollToTop()"
+        aria-label="Torna all'inizio"
+      >
+        ↑ Torna su
+      </button>
+    </article>
+  </div>
+</section>
