@@ -2,13 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches: ["main"] # solo main
+  workflow_dispatch: {}
 
 concurrency:
   group: "pages"
@@ -17,35 +12,50 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # solo ciò che serve a buildare
+    env:
+      NODE_OPTIONS: --max_old_space_size=4096
+      OUTPUT_DIR: dist/ilreleonecdc-site/browser
+      DOMAIN: ilreleonecdc.it
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20.16.0
           cache: npm
 
       - name: Install deps
-        run: npm ci
+        run: npm ci --no-audit --no-fund
 
       - name: Build Angular (prod)
+        run: npx ng build --configuration=production --base-href "/"
+
+      - name: Ensure CNAME
+        # scrive sempre il CNAME nella cartella di output
         run: |
-          npx ng build --configuration=production --base-href "/"
-          # copia il CNAME nell’output (adatta il path se il nome progetto è diverso)
-          cp CNAME dist/ilreleonecdc-site/browser/CNAME
+          mkdir -p "$OUTPUT_DIR"
+          echo "$DOMAIN" > "$OUTPUT_DIR/CNAME"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/ilreleonecdc-site/browser
+          path: ${{ env.OUTPUT_DIR }}
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
-      name: github-pages
+      name: github-pages # mantieni questo nome (ambiente protetto)
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
