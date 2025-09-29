@@ -14,5 +14,6 @@ export const routes: Routes = [
   { path: 'privacy', component: PrivacyComponent },
 
   // 404
+  { path: '404', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent }
 ];

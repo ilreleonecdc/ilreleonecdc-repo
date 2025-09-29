@@ -29,12 +29,15 @@
         pAnimateOnScroll
         enterClass="fade-in"
         threshold="0.1"
+        [class.horizontal]="item.isHorizontal"
       >
         <p-image
           class="photo-img"
-          [src]="item"
-          [alt]="item"
+          [src]="item.url"
+          [alt]="item.url"
           loading="lazy"
+          [ariaLabel]="item.url"
+          [title]="item.url"
           preview="true"
           imageClass="gallery-img"
           [imageStyle]="{
@@ -53,8 +56,8 @@
           >
             <img
               class="photo-img2"
-              [src]="item"
-              alt="image"
+              [src]="item.url"
+              [alt]="item.url"
               [style]="style"
               (click)="previewCallback()"
             />
@@ -67,6 +70,6 @@
   <p id="doti" class="rubik white text-center">
     Le fotografie sono state scattate durante la Prima Rappresentazione tenuta
     al Teatro degli Illuminati, Città di Castello (PG) - 5 Aprile 2025. <br />
-    © Christian Doti
+    © Cristian Doti
   </p>
 </section>

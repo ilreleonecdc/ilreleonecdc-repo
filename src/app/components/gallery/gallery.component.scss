@@ -115,6 +115,19 @@
   padding: 1rem 1rem 0;
 }
 
+// @media (max-width: 767px) {
+//   .images-columns .photo.horizontal {
+//     column-span: all; /* Chrome/Safari: span su tutte le colonne */
+//     display: block; /* necessario con column-span */
+//     width: 100%;
+//   }
+// }
+
+// /* (opzionale) piccolo margine tra “righe” quando spanna */
+// .images-columns .photo.horizontal {
+//   margin-bottom: 0.4rem;
+// }
+
 @media (min-width: 600px) {
   .images-columns {
     column-count: 2;
