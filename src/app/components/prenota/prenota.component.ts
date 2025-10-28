@@ -90,7 +90,7 @@ export class PrenotaComponent implements OnInit {
       city: 'Città di Castello',
       billettoUrl: 'https://billetto.it/e/il-re-leone-cdc-il-musical-biglietti-1666403?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1',
       cover: '../../../assets/images/varie/illuminati.jpg',
-      soldOut: false,
+      soldOut: true,
       enabled: true
 
     },
