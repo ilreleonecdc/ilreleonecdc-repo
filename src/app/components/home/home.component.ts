@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // TRAGUARDI & FUTURO (demo)
   // Target (puoi cambiare qui)
-  spectatorsTarget = 1400;
+  spectatorsTarget = 2200;
   volunteersTarget = 100;
 
   // Valori mostrati nel knob (partono da 0)
