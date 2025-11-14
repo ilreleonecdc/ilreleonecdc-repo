@@ -108,7 +108,7 @@ export class PrenotaComponent implements OnInit {
     {
       id: 'assisi-2026-03-21',
       title: 'Il Re Leone CDC – Il Musical',
-      date: '2026-03-xxT21:00:00+01:00',
+      date: '2026-03-21T21:00:00+01:00',
       venue: 'Teatro Lyrick',
       city: 'Assisi',
       billettoUrl: '',
