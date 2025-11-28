@@ -114,7 +114,7 @@ export class PrenotaComponent implements OnInit {
       url: 'https://ticketitalia.com/re-leone-teatro-lyrick-assisi-perugia-21-marzo-2026',
       // cover: '../../../assets/images/varie/lyrick.jpg',
       // cover: '../../../assets/images/varie/ReLeone_1000x640.webp',
-      cover: '../../../assets/images/varie/ReLeone_325x160.webp',
+      cover: '../../../assets/images/varie/325x160.jpg',
       soldOut: false,
       enabled: true
     },
