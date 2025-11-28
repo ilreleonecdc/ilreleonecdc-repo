@@ -66,7 +66,7 @@
         @if(s.enabled){
         <a
           pButton
-          [href]="s.billettoUrl"
+          [href]="s.url"
           class="btn-ticket"
           (click)="$event.stopPropagation()"
           target="_blank"
@@ -100,13 +100,14 @@
     ></iframe>
   </div>
 </section>
+<!--  -->
 
-<section class="calendar alt" id="calendar">
+<!-- <section class="calendar alt" id="calendar">
   <div class="container">
     <h2 style="color: #2f408c; font-size: 3rem" class="text-center bebas">
       CALENDARIO COMPLETO
     </h2>
-    <!-- Se usi il widget calendario/account di Billetto, inserisci qui il loro markup/link -->
+    Se usi il widget calendario/account di Billetto, inserisci qui il loro markup/link
     <script src="https://billetto.it/widget.js"></script>
     <billetto-organiser-widget
       type="calendar"
@@ -127,4 +128,4 @@
       Apri calendario Billetto
     </a>
   </div>
-</section>
+</section> -->

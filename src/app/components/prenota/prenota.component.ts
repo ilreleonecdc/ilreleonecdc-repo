@@ -13,7 +13,7 @@ export interface Show{
   date: ISODate;
   venue: string;
   city: string;
-  billettoUrl: string;
+  url: string;
   cover?: string;
   soldOut: boolean;
   enabled?: boolean
@@ -42,7 +42,7 @@ export class PrenotaComponent implements OnInit {
       date: '2025-04-05T21:00:00+02:00',
       venue: 'Teatro degli Illuminati',
       city: 'Città di Castello',
-      billettoUrl: '',
+      url: '',
       cover: '../../../assets/images/varie/illuminati.jpg',
       soldOut: true,
       enabled: false
@@ -53,7 +53,7 @@ export class PrenotaComponent implements OnInit {
       date: '2025-04-06T21:00:00+02:00',
       venue: 'Teatro degli Illuminati',
       city: 'Città di Castello',
-      billettoUrl: '',
+      url: '',
       cover: '../../../assets/images/varie/illuminati.jpg',
       soldOut: true,
       enabled: false
@@ -65,7 +65,7 @@ export class PrenotaComponent implements OnInit {
       date: '2025-04-26T21:00:00+02:00',
       venue: 'Teatro degli Illuminati',
       city: 'Città di Castello',
-      billettoUrl: '',
+      url: '',
       cover: '../../../assets/images/varie/illuminati.jpg',
       soldOut: true,
       enabled: false
@@ -77,7 +77,7 @@ export class PrenotaComponent implements OnInit {
       date: '2025-04-27T21:00:00+02:00',
       venue: 'Teatro degli Illuminati',
       city: 'Città di Castello',
-      billettoUrl: '',
+      url: '',
       cover: '../../../assets/images/varie/illuminati.jpg',
       soldOut: true,
       enabled: false
@@ -88,7 +88,7 @@ export class PrenotaComponent implements OnInit {
       date: '2025-10-25T21:00:00+02:00',
       venue: 'Teatro degli Illuminati',
       city: 'Città di Castello',
-      billettoUrl: 'https://billetto.it/e/il-re-leone-cdc-il-musical-biglietti-1666403?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1',
+      url: 'https://billetto.it/e/il-re-leone-cdc-il-musical-biglietti-1666403?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1',
       cover: '../../../assets/images/varie/illuminati.jpg',
       soldOut: true,
       enabled: true
@@ -100,7 +100,7 @@ export class PrenotaComponent implements OnInit {
       date: '2025-10-26T21:00:00+01:00',
       venue: 'Teatro degli Illuminati',
       city: 'Città di Castello',
-      billettoUrl: 'https://billetto.it/e/il-re-leone-cdc-il-musical-biglietti-1666405?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1',
+      url: 'https://billetto.it/e/il-re-leone-cdc-il-musical-biglietti-1666405?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1',
       cover: '../../../assets/images/varie/illuminati.jpg',
       soldOut: true,
       enabled: true
@@ -111,7 +111,7 @@ export class PrenotaComponent implements OnInit {
       date: '2026-03-21T21:00:00+01:00',
       venue: 'Teatro Lyrick',
       city: 'Assisi',
-      billettoUrl: '',
+      url: 'https://ticketitalia.com/re-leone-teatro-lyrick-assisi-perugia-21-marzo-2026',
       cover: '../../../assets/images/varie/lyrick.jpg',
       soldOut: false,
       enabled: false
