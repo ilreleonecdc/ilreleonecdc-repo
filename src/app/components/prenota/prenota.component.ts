@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, NgModule,CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
@@ -11,6 +11,7 @@ export interface Show{
   id: string;
   title: string;
   date: ISODate;
+  endDate?: ISODate;
   venue: string;
   city: string;
   url: string;
@@ -19,12 +20,22 @@ export interface Show{
   enabled?: boolean
 }
 
+export interface Evento {
+  title: string;
+  description?: string;
+  location?: string;
+  startDate: Date;
+  endDate: Date;
+  url?: string;
+}
+
 export interface Option<T = string>{
   label: string;
   value: T;
 }
 
 type ISODate = string;
+
 
 @Component({
   selector: 'app-prenota',
@@ -109,12 +120,13 @@ export class PrenotaComponent implements OnInit {
       id: 'assisi-2026-03-21',
       title: 'Re Leone - Lei Vive in Noi',
       date: '2026-03-21T21:00:00+01:00',
+      endDate: '2026-03-21T23:30:00+01:00',
       venue: 'Teatro Lyrick',
       city: 'Assisi',
       url: 'https://ticketitalia.com/re-leone-teatro-lyrick-assisi-perugia-21-marzo-2026',
       // cover: '../../../assets/images/varie/lyrick.jpg',
       // cover: '../../../assets/images/varie/ReLeone_1000x640.webp',
-      cover: '../../../assets/images/varie/325x160.jpg',
+      cover: '../../../assets/images/varie/ReLeoneCover.svg',
       soldOut: false,
       enabled: true
     },
@@ -167,4 +179,77 @@ export class PrenotaComponent implements OnInit {
       })
       .sort((a, b) => +new Date(a.date) - +new Date(b.date));
   }
+
+  downloadICal(s: any, event?: MouseEvent) {
+    event?.stopPropagation();
+
+    const ev: Evento = {
+      title: s.title,
+      location: `${s.venue}, ${s.city}`,
+      startDate: new Date(s.date),
+      endDate: new Date(s.endDate),
+      url: s.url ? s.url : undefined
+    }
+
+    const icsContent = this.buildIcsContent(ev);
+
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${s.id}.ics`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  private buildIcsContent(ev: Evento): string {
+    const dtStart = this.formatDateToICS(ev.startDate);
+    const dtEnd = this.formatDateToICS(ev.endDate);
+
+    const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Re Leone - Lei Vive in Noi//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    `UID:${this.generateUid()}`,
+    `DTSTAMP:${this.formatDateToICS(new Date())}`,
+    `DTSTART:${dtStart}`,
+    `DTEND:${dtEnd}`,
+    `SUMMARY:${this.escapeIcsText(ev.title)}`,
+    ev.description ? `DESCRIPTION:${this.escapeIcsText(ev.description)}` : '',
+    ev.location ? `LOCATION:${this.escapeIcsText(ev.location)}` : '',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].filter(l => l !== '');
+
+    return lines.join('\r\n');
+  }
+
+  private formatDateToICS(date: Date): string {
+  // formato: YYYYMMDDTHHMMSSZ (UTC)
+  const iso = date.toISOString(); // es: 2025-03-10T20:00:00.000Z
+  return iso.replace(/[-:]/g, '').split('.')[0]; // -> 20250310T200000Z
+}
+
+private escapeIcsText(text: string): string {
+  // escape minimo per ICS
+  return text
+    .replace(/\\/g, '\\\\')
+    .replace(/;/g, '\\;')
+    .replace(/,/g, '\\,')
+    .replace(/\r?\n/g, '\\n');
+}
+
+private sanitizeFileName(name: string): string {
+  return name.replace(/[\/\\?%*:|"<>]/g, '_');
+}
+
+private generateUid(): string {
+  return `${Date.now()}-${Math.random().toString(36).substring(2, 10)}@ilreleone`;
+}
 }

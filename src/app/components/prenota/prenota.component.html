@@ -54,7 +54,7 @@
         <h3 class="title bebas">{{ s.title }}</h3>
         <p class="meta font-italic">
           <span class="date">{{
-            s.date | date : "EEEE d MMMM, HH:mm" : "Europe/Rome"
+            s.date | date : "EEEE d MMMM yyyy, HH:mm" : "Europe/Rome"
           }}</span>
           <br />·
           <span class="place">{{ s.venue }} – {{ s.city }}</span>
@@ -64,17 +64,33 @@
         } @else {
         <!-- Link Billetto: /select apre il widget (embed.js deve essere in index.html) -->
         @if(s.enabled){
-        <a
-          pButton
-          [href]="s.url"
-          class="btn-ticket"
-          (click)="$event.stopPropagation()"
-          target="_blank"
+        <div
+          class="buttons-container flex flex-column gap-2 align-items-center"
         >
-          <i class="fa-solid fa-ticket" aria-hidden="true"></i>
-          <span class="label">Prenota ora</span>
-          <span class="shine" aria-hidden="true"></span>
-        </a>
+          <a
+            pButton
+            [href]="s.url"
+            class="btn-ticket"
+            (click)="$event.stopPropagation()"
+            target="_blank"
+          >
+            <i class="fa-solid fa-ticket" aria-hidden="true"></i>
+            <span class="label">Prenota ora</span>
+            <span class="shine" aria-hidden="true"></span>
+          </a>
+          <a
+            pButton
+            icon="fa-solid fa-calendar-plus"
+            [rounded]="true"
+            [severity]="'info'"
+            [size]="'large'"
+            [outlined]="true"
+            label="Aggiungi al Calendario"
+            class="flex"
+            (click)="downloadICal(s, $event)"
+          >
+          </a>
+        </div>
         } @else {
         <span class="badge comingsoon">Prossimamente</span>
         } }
