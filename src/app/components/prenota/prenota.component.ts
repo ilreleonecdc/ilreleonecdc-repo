@@ -112,7 +112,8 @@ export class PrenotaComponent implements OnInit {
       venue: 'Teatro Lyrick',
       city: 'Assisi',
       url: 'https://ticketitalia.com/re-leone-teatro-lyrick-assisi-perugia-21-marzo-2026',
-      cover: '../../../assets/images/varie/lyrick.jpg',
+      // cover: '../../../assets/images/varie/lyrick.jpg',
+      cover: '../../../assets/images/varie/ReLeone_1000x640.webp',
       soldOut: false,
       enabled: true
     },
