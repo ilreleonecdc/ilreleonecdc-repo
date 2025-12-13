@@ -102,7 +102,7 @@ export class PrenotaComponent implements OnInit {
       url: 'https://billetto.it/e/il-re-leone-cdc-il-musical-biglietti-1666403?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1',
       cover: '../../../assets/images/varie/illuminati.jpg',
       soldOut: true,
-      enabled: true
+      enabled: false
 
     },
     {
@@ -114,7 +114,7 @@ export class PrenotaComponent implements OnInit {
       url: 'https://billetto.it/e/il-re-leone-cdc-il-musical-biglietti-1666405?utm_source=organiser&utm_medium=share&utm_campaign=copy_link&utm_content=1',
       cover: '../../../assets/images/varie/illuminati.jpg',
       soldOut: true,
-      enabled: true
+      enabled: false
     },
     {
       id: 'assisi-2026-03-21',
@@ -127,7 +127,7 @@ export class PrenotaComponent implements OnInit {
       // cover: '../../../assets/images/varie/lyrick.jpg',
       // cover: '../../../assets/images/varie/ReLeone_1000x640.webp',
       cover: '../../../assets/images/varie/ReLeoneCover.svg',
-      soldOut: false,
+      soldOut: true,
       enabled: true
     },
   ];
