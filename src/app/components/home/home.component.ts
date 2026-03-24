@@ -1,21 +1,41 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { AnimateOnScroll } from 'primeng/animateonscroll';
+import {
+  AnimateOnScroll,
+  AnimateOnScrollModule,
+} from 'primeng/animateonscroll';
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { KnobModule } from 'primeng/knob';
 
 @Component({
   selector: 'app-home',
-  imports: [AnimateOnScroll, ButtonModule, RouterLink, CarouselModule, CommonModule, KnobModule, FormsModule],
+  imports: [
+    AnimateOnScrollModule,
+    ButtonModule,
+    RouterLink,
+    CarouselModule,
+    CommonModule,
+    KnobModule,
+    FormsModule,
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChild('heroSentinel', { static: true }) heroSentinel!: ElementRef<HTMLElement>;
-  @ViewChild('metricsSection', { static: false }) metricsSection?: ElementRef<HTMLElement>;
+  @ViewChild('heroSentinel', { static: true })
+  heroSentinel!: ElementRef<HTMLElement>;
+  @ViewChild('metricsSection', { static: false })
+  metricsSection?: ElementRef<HTMLElement>;
   private observer?: IntersectionObserver;
   private metricsObserver?: IntersectionObserver;
 
@@ -30,22 +50,41 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     { name: 'Shenzi, Banzai & Ed', img: 'assets/images/personaggi/iene.webp' },
     { name: 'Simba', img: 'assets/images/personaggi/simba.webp' },
     { name: 'Simba Jr.', img: 'assets/images/personaggi/simbajr.webp' },
-    { name: 'Timon & Pumbaa', img: 'assets/images/personaggi/timonpumbaa.webp' },
+    {
+      name: 'Timon & Pumbaa',
+      img: 'assets/images/personaggi/timonpumbaa.webp',
+    },
     { name: 'Zazu', img: 'assets/images/personaggi/zazu.webp' },
-    { name: 'Scopri la Galleria', img: 'assets/images/varie/obbiettivo.webp', class: 'obbiettivo' },
+    {
+      name: 'Scopri la Galleria',
+      img: 'assets/images/varie/obbiettivo.webp',
+      class: 'obbiettivo',
+    },
   ];
 
   // CITAZIONI (metti le tue reali)
   quotes = [
-    { text: 'È stato strepitoso, un lavoro straordinario, le coreografie, gli abiti e i ragazzi coinvolti... credo sia stato un lavoro inimmaginabile.', author: 'Spettatrice' },
-    { text: 'Complimenti di cuore per lo spettacolo di questa sera e per le forti emozioni che ci avete regalato [...] Le scenografie, le luci, i costumi, la recitazione... tutto perfetto!', author: 'Spettatore' },
-    { text: 'Avete creato una roba pazzesca... non trovo le parole per dirti che SPETTACOLO incredibile avete fatto.', author: 'Spettatrice' },
-    { text: 'Commovente, entusiasmante, struggente, divertente, stupefacente, catartico, liberatorio... un colpo al cuore, di quelli che ti fanno piangere e ridere insieme.', author: 'Spettatrice' },
+    {
+      text: 'È stato strepitoso, un lavoro straordinario, le coreografie, gli abiti e i ragazzi coinvolti... credo sia stato un lavoro inimmaginabile.',
+      author: 'Spettatrice',
+    },
+    {
+      text: 'Complimenti di cuore per lo spettacolo di questa sera e per le forti emozioni che ci avete regalato [...] Le scenografie, le luci, i costumi, la recitazione... tutto perfetto!',
+      author: 'Spettatore',
+    },
+    {
+      text: 'Avete creato una roba pazzesca... non trovo le parole per dirti che SPETTACOLO incredibile avete fatto.',
+      author: 'Spettatrice',
+    },
+    {
+      text: 'Commovente, entusiasmante, struggente, divertente, stupefacente, catartico, liberatorio... un colpo al cuore, di quelli che ti fanno piangere e ridere insieme.',
+      author: 'Spettatrice',
+    },
   ];
 
   // TRAGUARDI & FUTURO (demo)
   // Target (puoi cambiare qui)
-  spectatorsTarget = 2200;
+  spectatorsTarget = 3200;
   volunteersTarget = 100;
 
   // Valori mostrati nel knob (partono da 0)
@@ -72,7 +111,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
           document.body.classList.add('show-header');
         }
       },
-      { threshold: 0.01 }
+      { threshold: 0.01 },
     );
     this.observer.observe(this.heroSentinel.nativeElement);
   }
@@ -80,14 +119,17 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   ngAfterViewInit() {
     // Avvia il count-up quando la sezione "metrics" entra in viewport
     if (this.metricsSection) {
-      this.metricsObserver = new IntersectionObserver((entries) => {
-        const e = entries[0];
-        if (e.isIntersecting && !this.knobsAnimated) {
-          this.knobsAnimated = true;
-          this.animateCountUp('spectators');
-          this.animateCountUp('volunteers');
-        }
-      }, { threshold: 0.2 });
+      this.metricsObserver = new IntersectionObserver(
+        (entries) => {
+          const e = entries[0];
+          if (e.isIntersecting && !this.knobsAnimated) {
+            this.knobsAnimated = true;
+            this.animateCountUp('spectators');
+            this.animateCountUp('volunteers');
+          }
+        },
+        { threshold: 0.2 },
+      );
       this.metricsObserver.observe(this.metricsSection.nativeElement);
     }
   }
@@ -96,7 +138,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     const duration = 1200; // ms
     const start = performance.now();
     const startVal = 0;
-    const endVal = which === 'spectators' ? this.spectatorsTarget : this.volunteersTarget;
+    const endVal =
+      which === 'spectators' ? this.spectatorsTarget : this.volunteersTarget;
 
     const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
