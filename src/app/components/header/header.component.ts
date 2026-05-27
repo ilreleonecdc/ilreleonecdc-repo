@@ -7,23 +7,31 @@ import { filter } from 'rxjs/operators';
   selector: 'app-header',
   imports: [CommonModule, RouterLink],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-    menuOpen = false;
+  menuOpen = false;
   isScrolled = false;
   scrollProgress = 0;
   isHome = false;
   isContatti = false;
   isFloating = false;
 
-  constructor(private router: Router, private r: Renderer2) {
+  constructor(
+    private router: Router,
+    private r: Renderer2,
+  ) {
     this.router.events
-      .pipe(filter(e => e instanceof NavigationEnd))
+      .pipe(filter((e) => e instanceof NavigationEnd))
       .subscribe((e: any) => {
         // controlla se sei sulla home
-        this.isHome = e.urlAfterRedirects === '/' || e.urlAfterRedirects.startsWith('/#');
-        this.isContatti = e.urlAfterRedirects === '/contatti' || e.urlAfterRedirects === '/gallery' || e.urlAfterRedirects === '/prenota' || e.urlAfterRedirects === '/privacy';
+        this.isHome =
+          e.urlAfterRedirects === '/' || e.urlAfterRedirects.startsWith('/#');
+        this.isContatti =
+          e.urlAfterRedirects === '/contatti' ||
+          e.urlAfterRedirects === '/gallery' ||
+          e.urlAfterRedirects === '/prenota' ||
+          e.urlAfterRedirects === '/privacy';
       });
   }
 
@@ -33,7 +41,9 @@ export class HeaderComponent {
     this.r.addClass(document.body, 'menu-open');
     // sposta il focus dentro il drawer
     queueMicrotask(() => {
-      const firstLink = document.querySelector('#mobile-drawer a') as HTMLElement | null;
+      const firstLink = document.querySelector(
+        '#mobile-drawer a',
+      ) as HTMLElement | null;
       firstLink?.focus();
     });
   }
@@ -54,12 +64,15 @@ export class HeaderComponent {
 
   // ESC per chiudere
   @HostListener('document:keydown.escape')
-  onEsc() { if (this.menuOpen) this.closeMenu(); }
+  onEsc() {
+    if (this.menuOpen) this.closeMenu();
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
     this.scrollProgress = (scrollTop / docHeight) * 100;
 
     this.isScrolled = scrollTop > 0;

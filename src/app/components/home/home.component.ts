@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     },
   ];
 
-  // CITAZIONI (metti le tue reali)
+  // CITAZIONI
   quotes = [
     {
       text: 'È stato strepitoso, un lavoro straordinario, le coreografie, gli abiti e i ragazzi coinvolti... credo sia stato un lavoro inimmaginabile.',
@@ -82,12 +82,12 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     },
   ];
 
-  // TRAGUARDI & FUTURO (demo)
-  // Target (puoi cambiare qui)
+  // TRAGUARDI & FUTURO
+  // Target
   spectatorsTarget = 3200;
   volunteersTarget = 100;
 
-  // Valori mostrati nel knob (partono da 0)
+  // Valori mostrati nel knob
   spectatorsDisplay = 0;
   volunteersDisplay = 0;
 
